@@ -1,27 +1,103 @@
-# CrudApp
+# Simple Angular CRUD Application
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.3.2.
+## Task
 
-## Development server
+Create a Simple CRUD Application with Reactive Programming, Cross-Component Communication, State Management, and Custom Pipe/Directive.
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+## Requirements
 
-## Code scaffolding
+### 1. Set Up the Project
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+- Created a new Angular project using Angular CLI.
+- Set up routing for the application.
 
-## Build
+### 2. Create a Model
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+- Defined a model for a simple entity, `Product` with the following properties:
+  - `id: number`
+  - `name: string`
+  - `description: string`
+  - `price: number`
 
-## Running unit tests
+### 3. Build Components
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+- Created the following components:
+  - `ProductListComponent`: Displays a list of products.
+  - `ProductDetailComponent`: Displays details of a selected product.
+  - `ProductEditComponent`: Form to edit a product.
+  - `ProductSearchComponent`: A separate component to handle product search and emit search events.
 
-## Running end-to-end tests
+### 4. Implement Services with RxJS
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+- Created a service `ProductService` to handle CRUD operations (using a mock API or in-memory data for simplicity).
+- Utilized RxJS Observables and Operators for handling data streams and asynchronous operations.
 
-## Further help
+### 5. Routing
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+- Set up routes for the components:
+  - `/products` for the product list.
+  - `/products/:id` for the product details.
+  - `/products/:id/edit` for editing a product.
+
+### 6. Form Handling with Reactive Forms
+
+- Implemented reactive forms for creating and editing products.
+- Included form validation using reactive forms.
+
+### 7. Data Binding and Async Operations
+
+- Implemented data binding to display the product list and details.
+- Used RxJS Observables to fetch and display data.
+- Implemented search functionality in the product list using the `ProductSearchComponent` and RxJS operators like `debounceTime` and `distinctUntilChanged`.
+
+### 8. Cross-Component Communication
+
+- Implemented cross-component communication using an Event Emitter and Observer pattern with RxJS.
+- Used a shared service to emit search terms from `ProductSearchComponent` and listen to them in `ProductListComponent`.
+
+### 9. Create a Custom Pipe
+
+- Implemented a custom pipe called `CurrencyFormatPipe` to format the product price with a currency symbol.
+
+### 10. Create a Custom Directive
+
+- Implemented a custom directive called `HighlightDirective` to highlight a product when the mouse hovers over it.
+
+### 11. Error Handling
+
+- Displayed appropriate error messages in the UI (wherever deemed necessary).
+
+### 12. Styling
+
+- Added basic styling to make the UI user-friendly (CSS/SCSS).
+
+## Steps to Create the Application
+
+### Set Up the Project
+
+First, I set up the Angular project using Angular CLI:
+
+```bash
+ng new angular-crud-app
+cd angular-crud-app
+ng serve
+```
+
+### For Running The app
+
+```bash
+git clone https://github.com/dronax/angular-crud
+cd angular-crud
+npm i
+ng serve
+```
+
+### Running With Docker Image
+
+```bash
+git clone https://github.com/dronax/angular-crud
+cd angular-crud
+docker build -t crud-app .
+docker run -p -d 4200:4200 crud-app
+
+```
