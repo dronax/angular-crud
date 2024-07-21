@@ -88,7 +88,7 @@ ng serve
 ```bash
 git clone https://github.com/dronax/angular-crud
 cd angular-crud
-npm i
+npm i --legacy-peer-deps
 ng serve
 ```
 
