@@ -1,0 +1,25 @@
+.search-box {
+  position: relative;
+  input {
+    padding: 10px;
+    border-radius: 8px;
+    border: none;
+    background: #e2e2e2;
+    min-width: 50vw;
+  }
+  img {
+    position: absolute;
+    right: 5px;
+    top: 7px;
+  }
+  img:hover {
+    transform: scale(110%);
+  }
+}
+@media (max-width: 768px) {
+  .search-box {
+    input {
+      width: 86vw;
+    }
+  }
+}

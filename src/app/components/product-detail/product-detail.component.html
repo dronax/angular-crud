@@ -1,0 +1,94 @@
+<div class="card-wrapper">
+    <div class="card">
+        <!-- card left -->
+        <div class="product-imgs">
+            <div class="img-display">
+                <div class="img-showcase">
+                    <img [src]="product?.image" alt="shoe image">
+
+                </div>
+            </div>
+        </div>
+        <!-- card right -->
+        <div class="product-content">
+            <div class="product-action">
+                <i class="fas fa-pen edit-btn" (click)="editProduct()"></i>
+                <i class="fas fa-trash del-btn" (click)="openDeleteModal(deleteProduct)"></i>
+
+            </div>
+            <h2 class="product-title">{{product?.name}}</h2>
+            <a href="#" class="product-link">visit store</a>
+            <div class="product-rating">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star-half-alt"></i>
+                <span>4.7(21)</span>
+            </div>
+
+            <div class="product-price">
+                <p class="new-price"> Price: <span>{{product?.price|currency:'USD':true}}</span></p>
+            </div>
+
+            <div class="product-detail">
+                <h2>about this item: </h2>
+                <p>{{product?.description}}</p>
+                <!-- <ul>
+                    <li>Color: <span>Black</span></li>
+                    <li>Available: <span>in stock</span></li>
+                    <li>Category: <span>Shoes</span></li>
+                    <li>Shipping Area: <span>All over the world</span></li>
+                    <li>Shipping Fee: <span>Free</span></li>
+                </ul> -->
+            </div>
+
+            <div class="purchase-info">
+                <input type="number" min="0" value="1">
+                <button type="button" class="btn">
+                    Buy Now <i class="fas fa-shopping-cart"></i>
+                </button>
+            </div>
+
+            <div class="social-links">
+                <p>Share At: </p>
+                <a href="#">
+                    <i class="fab fa-facebook-f"></i>
+                </a>
+                <a href="#">
+                    <i class="fab fa-twitter"></i>
+                </a>
+                <a href="#">
+                    <i class="fab fa-instagram"></i>
+                </a>
+                <a href="#">
+                    <i class="fab fa-whatsapp"></i>
+                </a>
+                <a href="#">
+                    <i class="fab fa-pinterest"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<ng-template #deleteProduct let-deleteModal>
+    <div class="container p-3">
+        <div class="modal-header py-2">
+            <h5 class="modal-title"><span class="text-danger">Delete</span> {{product.name|titlecase}} ?</h5>
+            <button type=" button" class="btn-close" aria-label="Close"
+                (click)="deleteModal.dismiss('Cross click')"></button>
+        </div>
+        <hr>
+        <div class="row mb-3 modal-body">
+
+
+            <div class="d-flex justify-content-between py-4">
+                <button class="btn btn-success py-2 px-2" (click)="deleteModal.dismiss('Cross click')">Cancel</button>
+                <button class=" btn btn-danger py-2 px-2" (click)="confirmDeleteProduct()">Delete</button>
+
+
+            </div>
+        </div>
+    </div>
+</ng-template>

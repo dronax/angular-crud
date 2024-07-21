@@ -1,0 +1,18 @@
+<div class="navbar-box">
+    <div class="nav-container">
+        <div class="logo-container">
+            <span routerLink="home">Logo</span>
+            <app-product-search class="app-product-search"></app-product-search>
+        </div>
+        <ul class="menu">
+            <li><span routerLink="home">Home</span></li>
+            <li ngbDropdown>
+                <span id="dropdownBasic1" ngbDropdownToggle>Products</span>
+                <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
+                    <button ngbDropdownItem routerLink="products">All</button>
+
+                </div>
+            </li>
+        </ul>
+    </div>
+</div>
